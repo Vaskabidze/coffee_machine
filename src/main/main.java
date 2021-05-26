@@ -10,8 +10,8 @@ public class main {
         String action;
 
 
-        CoffeeMachine machine = new CoffeeMachine(100, 100, 100, 2, 100);
-       // CoffeeMachine machine = new CoffeeMachine(100, 100, 100, 100, 100);
+        CoffeeMachine machine = new CoffeeMachine(5, 5, 5, 5, 5);
+
 
         CoffeeMaker maker = new CoffeeMaker();
 
@@ -67,42 +67,29 @@ public class main {
                         System.out.println("Введена неверная команда");
                     }
                 }
-            } else if (menuStatus == 3) {
-                System.out.println(machine.toString());
-                menuStatus = 0;
             } else if (menuStatus == 2) {
                 System.out.print("What do you want to remain? 1 - water, 2 - milk, 3 - coffee_beams, 4 - disposable_cups, 5 - money, 0 - exit to main menu: ");
                 action = in.nextLine();
                 switch (action) {
                     case "1":
                         System.out.println("Сколько Water пополнить?");
-                        action = in.nextLine();
-                        Replenishment.replenWater(machine, action);
-                        System.out.println("Пополнено " + action + " water");
+                        Replenishment.replenWater(machine, in.nextLine());
                         break;
                     case "2":
                         System.out.println("Сколько milk пополнить?");
-                        action = in.nextLine();
-                        Replenishment.replenMilk(machine, action);
-                        System.out.println("Пополнено " + action + " milk");
+                        Replenishment.replenMilk(machine, in.nextLine());
                         break;
                     case "3":
                         System.out.println("Сколько coffee_beams пополнить?");
-                        action = in.nextLine();
-                        Replenishment.replenCoffee_beams(machine,action);
-                        System.out.println("Пополнено " + action + " coffee_beams");
+                        Replenishment.replenCoffee_beams(machine, in.nextLine());
                         break;
                     case "4":
                         System.out.println("Сколько disposable_cups пополнить?");
-                        action = in.nextLine();
-                        Replenishment.replenDisposable_cups(machine,action);
-                        System.out.println("Пополнено " + action + " disposable_cups");
+                        Replenishment.replenDisposable_cups(machine, in.nextLine());
                         break;
                     case "5":
                         System.out.println("Сколько money пополнить?");
-                        action = in.nextLine();
-                        Replenishment.replenMoney(machine,action);
-                        System.out.println("Пополнено " + action + " money");
+                        Replenishment.replenMoney(machine, in.nextLine());
                         break;
                     case "0":
                         menuStatus = 0;
@@ -111,7 +98,9 @@ public class main {
                     default:
                         System.out.println("Введена неверная команда");
                 }
-
+            } else if (menuStatus == 3) {
+                System.out.println(machine.toString());
+                menuStatus = 0;
             }
 
         }
